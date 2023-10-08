@@ -29,4 +29,5 @@ Route::get("/comics/{comic}", [ComicController::class, "show"])->name("comics.sh
 // Rotta per visualizzare il modulo di creazione
 Route::get('/comics/create', [ComicController::class, 'create'])->name('/comics.create');
 
-
+// Rotta per gestire i dati inviati dal modulo di creazione
+Route::post('/comics', [ComicController::class, 'store']);
