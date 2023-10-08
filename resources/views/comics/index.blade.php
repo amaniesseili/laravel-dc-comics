@@ -1,6 +1,8 @@
 
 @extends('layouts.public')
 
+@section("title", "dc comics - charachters")
+
 @section("content")
 
 <h1>hello world </h1>
@@ -8,7 +10,7 @@
 <div class="container">
     <h1>DC Comics</h1>
     <div class="row">
-        @foreach($dati as $comic)
+        @foreach($comics as $comic)
         <div class="col-md-4">
             <div class="card">
                 <img src="{{ $comic->thumb) }}" class="card-img-top">

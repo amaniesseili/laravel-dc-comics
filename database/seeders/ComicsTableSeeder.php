@@ -232,6 +232,7 @@ class ComicsTableSeeder extends Seeder
             $comicsModel = new \App\Models\Comic(); //creamo un istanza del model comic
 
 
+
             // assegnamo per ogni atributo il valore 
             $comicsModel->title = $comic["title"];
             $comicsModel->thumb = $comic["thumb"];

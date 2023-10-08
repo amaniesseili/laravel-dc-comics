@@ -11,7 +11,7 @@
         @foreach($comics as $comic)
         <div class="col-md-4">
             <div class="card">
-                <img src="{{ asset('img/' . $comic->thumb) }}" class="card-img-top">
+                {{-- <img src="{{ $comic['thumb']) }}" class="card-img-top"> --}}
                 <div class="card-body">
                     <h5 class="card-title">{{ $comic->title }}</h5>
                     <p class="card-text">{{ $comic->description }}</p>

@@ -11,15 +11,19 @@ class ComicController extends Controller
 {
     public function index() // index funzione per mostrare i dati 
     {
-        $dati = Comic::all();  // legge i dati dal db
-        return view('comics.index', ["dati"=>$dati]); // la view si chiama sempre index e la risorsa sempre al plurale comics
+        $comics = Comic::all();  // legge i dati dal db
+        return view('comics.index', ["comics" => $comics]); // la view si chiama sempre index e la risorsa sempre al plurale comics
     }
 
     // creo la funzione show che riceve l'id che c'e scritto nel url 
     public function show($id) {
         $comic = Comic::find($id); // con quel id cerco l'elemento nel db
-        return view('comics.show',["comic"=>$comic]);// lo ritorno alla mia view che dobbiamo crearla e chiamarla show.blade.php
+        return view('comics.show',["comics" => $comics]);// lo ritorno alla mia view che dobbiamo crearla e chiamarla show.blade.php
     }
 
+    public function create()
+    {
+        return view('comics.create');
+    }
 
 };

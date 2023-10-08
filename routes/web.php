@@ -24,3 +24,9 @@ Route::get("/comics", [ComicController::class, "index"])->name("comics.index");
 
 //show
 Route::get("/comics/{comic}", [ComicController::class, "show"])->name("comics.show");
+
+
+// Rotta per visualizzare il modulo di creazione
+Route::get('/comics/create', [ComicController::class, 'create'])->name('/comics.create');
+
+
