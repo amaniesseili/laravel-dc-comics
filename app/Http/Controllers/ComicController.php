@@ -16,9 +16,10 @@ class ComicController extends Controller
     }
 
     // creo la funzione show che riceve l'id che c'e scritto nel url 
-    public function show($id) {
+    public function show($id)
+    {
         $comic = Comic::find($id); // con quel id cerco l'elemento nel db
-        return view('comics.show',["comics" => $comics]);// lo ritorno alla mia view che dobbiamo crearla e chiamarla show.blade.php
+        return view('comics.show', ["comics" => $comics]); // lo ritorno alla mia view che dobbiamo crearla e chiamarla show.blade.php
     }
 
     public function create()
@@ -26,4 +27,20 @@ class ComicController extends Controller
         return view('comics.create');
     }
 
+
+    public function store(Request $request)
+    {
+        // Validazione dei dati del modulo
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        // Creazione del nuovo fumetto
+        Comic::create($validatedData);
+
+        // Redirect alla pagina di elenco dei fumettiF
+        return redirect('/comics');
+    }
 };
